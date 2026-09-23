@@ -1,0 +1,398 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.login_outer {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #90e0ef;
+}
+
+.login_outer>.inner {
+    height: 70%;
+    width: 60%;
+
+    background-color: #0096c7;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_outer>.inner>.left {
+    flex-basis: 50%;
+    height: 100%;
+
+    background-image: url(./img/login/20944201.jpg);
+    background-size: cover;
+
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.login_outer>.inner>.right {
+    flex-basis: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 40px 60px;
+}
+
+.login_outer>.inner>.right>h1 {
+    font-size: 40px;
+
+    text-shadow: 2px 2px 2px white;
+    text-decoration: underline;
+    letter-spacing: 1px;
+
+    margin: 10px 0px;
+}
+
+.login_outer>.inner>.right>label {
+    font-size: 25px;
+    font-weight: bold;
+
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.login_outer>.inner>.right>input {
+    height: 35px;
+
+    border-radius: 6px;
+    border: none;
+    outline: none;
+
+    margin-bottom: 3px;
+    padding-left: 10px;
+}
+
+.login_outer>.inner>.right>input:focus {
+    outline: none;
+    border: 2px solid #023e8a;
+}
+
+.login_outer>.inner>.right>#cb {
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.login_outer>.inner>.right>#cb>input {
+    background-color: yellowgreen;
+
+    margin-left: 10px;
+
+    height: 16px;
+    width: 16px;
+}
+
+.login_outer>.inner>.right>#cb>label {
+    font-weight: bold;
+}
+
+.login_outer>.inner>.right>.btns {
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.login_outer>.inner>.right>.btns>button {
+    height: 35px;
+    width: 100px;
+
+    border-radius: 5px;
+    border: none;
+
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 16px;
+
+    color: white;
+    background-color: #023e8a;
+
+    box-shadow: 2px 2px 3px white;
+
+    cursor: pointer;
+}
+
+.login_outer>.inner>.right>.btns>#login:hover {
+    transform: scale(1.1);
+    background-color: rgb(0, 167, 0);
+}
+
+.login_outer>.inner>.right>.btns>#back:hover {
+    transform: scale(1.1);
+    background-color: rgb(189, 100, 237);
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* =========================
+   LARGE TABLETS / SMALL LAPTOPS
+   ========================= */
+
+@media (max-width: 1100px) {
+
+    .login_outer {
+        padding: 20px;
+    }
+
+    .login_outer>.inner {
+        width: 80%;
+        height: 70%;
+    }
+
+    .login_outer>.inner>.right {
+        padding: 35px 40px;
+    }
+
+    .login_outer>.inner>.right>h1 {
+        font-size: 35px;
+    }
+
+    .login_outer>.inner>.right>label {
+        font-size: 21px;
+    }
+
+    .login_outer>.inner>.right>input {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .login_outer {
+        padding: 15px;
+    }
+
+    .login_outer>.inner {
+        width: 90%;
+        height: 65%;
+    }
+
+    .login_outer>.inner>.left {
+        flex-basis: 45%;
+    }
+
+    .login_outer>.inner>.right {
+        flex-basis: 55%;
+        padding: 30px;
+    }
+
+    .login_outer>.inner>.right>h1 {
+        font-size: 32px;
+    }
+
+    .login_outer>.inner>.right>label {
+        font-size: 19px;
+    }
+
+    .login_outer>.inner>.right>input {
+        height: 34px;
+    }
+
+    .login_outer>.inner>.right>.btns {
+        gap: 15px;
+    }
+
+    .login_outer>.inner>.right>.btns>button {
+        width: 90px;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .login_outer {
+        min-height: 100vh;
+        height: auto;
+
+        padding: 20px 0;
+    }
+
+    .login_outer>.inner {
+        width: 92%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+
+    /* IMAGE */
+
+    .login_outer>.inner>.left {
+        width: 100%;
+        height: 200px;
+
+        flex-basis: auto;
+
+        border-radius: 0;
+
+        background-position: center;
+    }
+
+
+    /* LOGIN FORM */
+
+    .login_outer>.inner>.right {
+        width: 100%;
+
+        flex-basis: auto;
+
+        padding: 25px 30px 30px;
+    }
+
+    .login_outer>.inner>.right>h1 {
+        font-size: 30px;
+
+        text-align: center;
+
+        margin: 5px 0 15px;
+    }
+
+    .login_outer>.inner>.right>label {
+        font-size: 18px;
+
+        margin-top: 8px;
+    }
+
+    .login_outer>.inner>.right>input {
+        width: 100%;
+        height: 38px;
+
+        font-size: 14px;
+    }
+
+
+    /* SHOW PASSWORD */
+
+    .login_outer>.inner>.right>#cb {
+        height: 35px;
+    }
+
+    .login_outer>.inner>.right>#cb>input {
+        margin-left: 5px;
+    }
+
+    .login_outer>.inner>.right>#cb>label {
+        font-size: 14px;
+    }
+
+
+    /* BUTTONS */
+
+    .login_outer>.inner>.right>.btns {
+        height: 60px;
+
+        gap: 15px;
+    }
+
+    .login_outer>.inner>.right>.btns>button {
+        width: 100px;
+        height: 36px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+   ========================= */
+
+@media (max-width: 380px) {
+
+    .login_outer {
+        padding: 10px 0;
+    }
+
+    .login_outer>.inner {
+        width: 94%;
+    }
+
+
+    /* IMAGE */
+
+    .login_outer>.inner>.left {
+        height: 160px;
+    }
+
+
+    /* FORM */
+
+    .login_outer>.inner>.right {
+        padding: 20px 18px 25px;
+    }
+
+    .login_outer>.inner>.right>h1 {
+        font-size: 26px;
+
+        margin-bottom: 12px;
+    }
+
+    .login_outer>.inner>.right>label {
+        font-size: 16px;
+    }
+
+    .login_outer>.inner>.right>input {
+        height: 35px;
+
+        font-size: 13px;
+    }
+
+
+    /* CHECKBOX */
+
+    .login_outer>.inner>.right>#cb>label {
+        font-size: 13px;
+    }
+
+
+    /* BUTTONS */
+
+    .login_outer>.inner>.right>.btns {
+        gap: 10px;
+    }
+
+    .login_outer>.inner>.right>.btns>button {
+        width: 90px;
+        height: 34px;
+
+        font-size: 13px;
+    }
+}

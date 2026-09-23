@@ -1,0 +1,1121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@keyframes image-box-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mother frames */
+.edit_outer {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffdab9;
+}
+
+/* nav */
+.edit_outer>nav {
+    height: 6%;
+    width: 85%;
+
+    background-color: rgb(232, 197, 151);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+}
+
+.edit_outer>nav>#back_btn {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 20px;
+
+    border: none;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f98c4b;
+    color: white;
+    cursor: pointer;
+}
+
+.edit_outer>nav>#logout_btn {
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    right: 20px;
+
+    border: none;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(216, 43, 43);
+
+    color: black;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.edit_outer>nav>#back_btn:hover {
+    box-shadow: 0px 0px 10px white;
+    transform: scale(0.85);
+    color: black;
+}
+
+.edit_outer>nav>#logout_btn:hover {
+    box-shadow: 0px 0px 10px white;
+    transform: scale(0.85);
+    color: white;
+}
+
+/* form */
+.e_form {
+    height: 90%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.e_form>main {
+    height: 100%;
+    width: 85%;
+
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.e_form>main>#left {
+    flex-basis: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #f08080;
+    padding: 0px 80px;
+
+    color: whitesmoke;
+    position: relative;
+}
+
+.e_form>main>#left>label {
+    margin-left: -20px;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.e_form>main>#left>h1 {
+    height: 45px;
+    background-color: rgb(245, 220, 220);
+    color: black;
+    text-shadow: 2px 2px 2px white;
+    text-align: center;
+    border-radius: 15px;
+    border: none;
+
+    position: relative;
+    bottom: 55px;
+
+    padding-top: 3px;
+}
+
+.e_form>main>#left>#cat {
+    display: block;
+    width: 200px;
+    height: 30px;
+    background-color: palegoldenrod;
+
+    padding-left: 10px;
+    border-radius: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+.e_form>main>#left>#lb_list {
+    width: 200px;
+    height: 260px;
+    overflow-y: auto;
+    border-radius: 10px;
+    scrollbar-width: none;
+    border: none;
+    background-color: white;
+    font-family: sans-serif;
+
+    padding: 10px;
+    letter-spacing: 0.6px;
+    font-size: 15px;
+}
+
+.e_form>main>#left>#lb_list>button {
+    display: block;
+    width: 100%;
+    padding: 7px 5px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: black;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.e_form>main>#left>#lb_list>button.selected {
+    background: #f98c4b;
+    color: white;
+}
+
+.e_form>main>#right {
+    background-color: #f8ad9d;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+    gap: 20px;
+
+    padding: 100px 100px 50px 100px;
+}
+
+
+.e_form>main>#right>.top {
+    height: 100%;
+
+    display: flex;
+}
+
+.e_form>main>#right>.top>#box1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 18px;
+}
+
+.e_form>main>#right>div>label {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    color: black;
+    text-shadow: 2px 2px 4px white;
+}
+
+.e_form>main>#right>.top>#box1>input {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+
+    padding-left: 10px;
+    letter-spacing: 0.6px;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+.e_form>main>#right>.top>#box1>textarea {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+    
+    padding-left: 10px;
+    letter-spacing: 0.6px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+
+.e_form>main>#right>.top>#box1>#i_name {
+    height: 30px;
+    width: 200px;
+}
+
+.e_form>main>#right>.top>#box1>#no_t {
+    height: 30px;
+    width: 150px;
+}
+
+.e_form>main>#right>.top>#box1>#color {
+    resize: none;
+    height: 60px;
+    width: 220px;
+}
+
+.e_form>main>#right>.top>#box1>#place {
+    height: 30px;
+    width: 220px;
+}
+
+.e_form>main>#right>.top>#box1>#g_type {
+    resize: none;
+    height: 60px;
+    width: 220px;
+}
+
+.e_form>main>#right>.top>#box1>#nut {
+    resize: none;
+    height: 90px;
+    width: 220px;
+}
+
+.e_form>main>#right>.top>#img_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    align-items: center;
+    margin-left: 50px;
+    position: relative;
+
+}
+
+.e_form>main>#right>.top>#img_box>.image_frame {
+    position: relative;
+    height: 250px;
+    width: 250px;
+}
+
+.e_form>main>#right>.top>#img_box>.image_frame>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: image-box-enter 0.4s ease-out;
+}
+
+.edit_outer #img_box .image_frame.image_loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    border: 5px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #238ac4;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: image-loader-spin-edit 0.75s linear infinite;
+    z-index: 1;
+}
+
+.edit_outer #img_box .image_frame.image_loading img {
+    opacity: 0.35;
+}
+
+@keyframes image-loader-spin-edit {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.e_form>main>#right>.top>#img_box>#btn_browse {
+    padding: 7px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+
+}
+
+.e_form>main>#right>.top>#img_box>#btn_browse:hover {
+    background-color: rgb(23, 138, 196);
+    border: 2px solid black;
+    color: white;
+    transform: scale(1.1);
+}
+
+.e_form>main>#right>.bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.e_form>main>#right>.bottom>#btns {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 600px;
+
+    padding: 5px;
+
+}
+
+.e_form>main>#right>.bottom>#btns>button {
+    padding: 0px 10px;
+    letter-spacing: 1px;
+
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+
+    background-color: black;
+    color: white;
+    box-shadow: 3px 2px 2px white;
+
+    cursor: pointer;
+}
+
+.e_form>main>#right>.bottom>#btns>#btn_add:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 3px 2px 2px black;
+    transform: scale(1.05);
+}
+
+.e_form>main>#right>.bottom>#btns>#btn_ins:hover {
+    background-color: green;
+    color: white;
+    box-shadow: 3px 2px 2px black;
+    transform: scale(1.05);
+}
+
+.e_form>main>#right>.bottom>#btns>#btn_up:hover {
+    background-color: orange;
+    color: white;
+    box-shadow: 3px 2px 2px black;
+    transform: scale(1.05);
+}
+
+.e_form>main>#right>.bottom>#btns>#btn_del:hover {
+    background-color: red;
+    color: black;
+    box-shadow: 3px 2px 2px black;
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   Matches learn.css breakpoints
+   ========================================================= */
+
+
+/* =========================
+   LARGE TABLETS / SMALL LAPTOPS
+   ========================= */
+
+@media (max-width: 1100px) {
+
+    .edit_outer {
+        min-height: 100vh;
+        height: auto;
+        padding: 20px 0;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    /* NAVIGATION */
+
+    .edit_outer>nav {
+        width: 94%;
+        min-height: 60px;
+    }
+
+    .edit_outer>nav>#back_btn {
+        left: 15px;
+    }
+
+    .edit_outer>nav>#logout_btn {
+        right: 15px;
+    }
+
+
+    /* FORM */
+
+    .e_form {
+        width: 100%;
+        height: auto;
+    }
+
+    .e_form>main {
+        width: 94%;
+        height: auto;
+        min-height: 700px;
+    }
+
+
+    /* LEFT SIDE */
+
+    .e_form>main>#left {
+        flex-basis: 30%;
+        padding: 0 40px;
+    }
+
+    .e_form>main>#left>h1 {
+        font-size: 25px;
+    }
+
+    .e_form>main>#left>#cat,
+    .e_form>main>#left>#lb_list {
+        width: 100%;
+        max-width: 200px;
+    }
+
+
+    /* RIGHT SIDE */
+
+    .e_form>main>#right {
+        flex-basis: 70%;
+        padding: 50px 40px 30px;
+        gap: 15px;
+    }
+
+
+    /* FORM TOP */
+
+    .e_form>main>#right>.top {
+        width: 100%;
+    }
+
+    .e_form>main>#right>.top>#box1 {
+        width: 60%;
+    }
+
+    .e_form>main>#right>.top>#img_box {
+        width: 40%;
+        margin-left: 20px;
+    }
+
+
+    /* IMAGE */
+
+    .e_form>main>#right>.top>#img_box>.image_frame {
+        width: min(220px, 90%);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+
+    /* INPUTS */
+
+    .e_form>main>#right>.top>#box1>input,
+    .e_form>main>#right>.top>#box1>textarea {
+        max-width: 100%;
+    }
+
+    .e_form>main>#right>.top>#box1>#i_name {
+        width: 90%;
+    }
+
+    .e_form>main>#right>.top>#box1>#no_t {
+        width: 80%;
+    }
+
+    .e_form>main>#right>.top>#box1>#color,
+    .e_form>main>#right>.top>#box1>#place,
+    .e_form>main>#right>.top>#box1>#g_type,
+    .e_form>main>#right>.top>#box1>#nut {
+        width: 90%;
+    }
+
+
+    /* BUTTONS */
+
+    .e_form>main>#right>.bottom>#btns {
+        width: 90%;
+    }
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .edit_outer {
+        padding: 12px 0;
+        gap: 15px;
+    }
+
+
+    /* NAVIGATION */
+
+    .edit_outer>nav {
+        width: 96%;
+        min-height: 55px;
+        border-radius: 15px;
+    }
+
+    .edit_outer>nav>#back_btn {
+        width: 45px;
+        height: 45px;
+        left: 10px;
+    }
+
+    .edit_outer>nav>#logout_btn {
+        width: 75px;
+        height: 40px;
+        right: 10px;
+    }
+
+
+    /* MAIN FORM */
+
+    .e_form {
+        width: 100%;
+        height: auto;
+    }
+
+    .e_form>main {
+        width: 96%;
+        min-height: auto;
+
+        flex-direction: column;
+        overflow: hidden;
+
+        border-radius: 15px;
+    }
+
+
+    /* LEFT SIDE */
+
+    .e_form>main>#left {
+        width: 100%;
+        flex-basis: auto;
+
+        padding: 25px 30px;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 20px;
+    }
+
+    .e_form>main>#left>h1 {
+        position: absolute;
+
+        top: 10px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 180px;
+        height: 40px;
+
+        font-size: 22px;
+        padding-top: 5px;
+    }
+
+    .e_form>main>#left>label {
+        margin-left: 0;
+        margin-top: 25px;
+    }
+
+    .e_form>main>#left>#cat,
+    .e_form>main>#left>#lb_list {
+        width: 45%;
+        max-width: none;
+        margin-top: 25px;
+    }
+
+    .e_form>main>#left>#lb_list {
+        height: 100px;
+    }
+
+
+    /* RIGHT SIDE */
+
+    .e_form>main>#right {
+        width: 100%;
+        flex-basis: auto;
+
+        padding: 30px;
+
+        gap: 20px;
+    }
+
+
+    /* TOP */
+
+    .e_form>main>#right>.top {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+    }
+
+    .e_form>main>#right>.top>#box1 {
+        width: 60%;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .e_form>main>#right>.top>#img_box {
+        width: 40%;
+
+        margin-left: 15px;
+    }
+
+
+    /* IMAGE */
+
+    .e_form>main>#right>.top>#img_box>.image_frame {
+        width: 200px;
+        height: 200px;
+    }
+
+
+    /* INPUTS */
+
+    .e_form>main>#right>.top>#box1>input,
+    .e_form>main>#right>.top>#box1>textarea {
+        max-width: 100%;
+    }
+
+    .e_form>main>#right>.top>#box1>#i_name {
+        width: 90%;
+    }
+
+    .e_form>main>#right>.top>#box1>#no_t {
+        width: 120px;
+    }
+
+    .e_form>main>#right>.top>#box1>#color,
+    .e_form>main>#right>.top>#box1>#place,
+    .e_form>main>#right>.top>#box1>#g_type,
+    .e_form>main>#right>.top>#box1>#nut {
+        width: 90%;
+    }
+
+
+    /* BOTTOM BUTTONS */
+
+    .e_form>main>#right>.bottom>#btns {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .e_form>main>#right>.bottom>#btns>button {
+        flex: 1;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .edit_outer {
+        min-height: 100vh;
+        height: auto;
+
+        padding: 8px 0 20px;
+
+        gap: 12px;
+    }
+
+
+    /* =====================
+       NAVIGATION
+       ===================== */
+
+    .edit_outer>nav {
+        width: 96%;
+        min-height: 52px;
+        height: 52px;
+        flex-shrink: 0;
+
+        border-radius: 14px;
+    }
+
+    .edit_outer>nav>#back_btn {
+        width: 42px;
+        height: 42px;
+
+        left: 7px;
+    }
+
+    .edit_outer>nav>#logout_btn {
+        width: 70px;
+        height: 38px;
+
+        right: 7px;
+
+        font-size: 12px;
+    }
+
+
+    /* =====================
+       MAIN FORM
+       ===================== */
+
+    .e_form {
+        width: 100%;
+        height: auto;
+    }
+
+    .e_form>main {
+        width: 96%;
+
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 15px;
+    }
+
+
+    /* =====================
+       LEFT / CATEGORY AREA
+       ===================== */
+
+    .e_form>main>#left {
+
+        width: 100%;
+        height: auto;
+
+        padding: 60px 15px 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .e_form>main>#left>h1 {
+
+        top: 12px;
+
+        width: 160px;
+        height: 38px;
+
+        font-size: 20px;
+
+        padding-top: 5px;
+    }
+
+    .e_form>main>#left>label {
+
+        margin: 0;
+
+        font-size: 16px;
+
+        text-align: center;
+    }
+
+    .e_form>main>#left>#cat {
+
+        width: 100%;
+        height: 35px;
+
+        margin: 0;
+
+        font-size: 14px;
+    }
+
+    .e_form>main>#left>#lb_list {
+
+        width: 100%;
+        height: 150px;
+
+        margin: 0;
+
+        font-size: 14px;
+    }
+
+
+    /* =====================
+       RIGHT FORM AREA
+       ===================== */
+
+    .e_form>main>#right {
+
+        width: 100%;
+
+        padding: 20px 15px;
+
+        gap: 20px;
+    }
+
+
+    /* =====================
+       TOP AREA
+       ===================== */
+
+    .e_form>main>#right>.top {
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    /* =====================
+       FORM FIELDS
+       ===================== */
+
+    .e_form>main>#right>.top>#box1 {
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .e_form>main>#right>.top>#box1>input,
+    .e_form>main>#right>.top>#box1>textarea {
+
+        width: 100% !important;
+        max-width: 100%;
+
+        font-size: 14px;
+
+        padding: 8px;
+    }
+
+    .e_form>main>#right>.top>#box1>#i_name {
+        width: 100% !important;
+        height: 35px;
+    }
+
+    .e_form>main>#right>.top>#box1>#no_t {
+        width: 130px !important;
+        height: 35px;
+    }
+
+    .e_form>main>#right>.top>#box1>#color {
+        width: 100% !important;
+        height: 65px;
+    }
+
+    .e_form>main>#right>.top>#box1>#place {
+        width: 100% !important;
+        height: 35px;
+    }
+
+    .e_form>main>#right>.top>#box1>#g_type {
+        width: 100% !important;
+        height: 65px;
+    }
+
+    .e_form>main>#right>.top>#box1>#nut {
+        width: 100% !important;
+        height: 65px;
+    }
+
+
+    /* =====================
+       IMAGE
+       ===================== */
+
+    .e_form>main>#right>.top>#img_box {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .e_form>main>#right>.top>#img_box>.image_frame {
+
+        width: min(220px, 70vw);
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        object-fit: cover;
+
+        border-radius: 15px;
+    }
+
+    .e_form>main>#right>.top>#img_box>#btn_browse {
+
+        font-size: 14px;
+
+        padding: 7px 12px;
+    }
+
+
+    /* =====================
+       BOTTOM BUTTONS
+       ===================== */
+
+    .e_form>main>#right>.bottom {
+
+        width: 100%;
+    }
+
+    .e_form>main>#right>.bottom>#btns {
+
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        padding: 0;
+    }
+
+    .e_form>main>#right>.bottom>#btns>button {
+
+        flex: 1 1 40%;
+
+        min-width: 100px;
+        max-width: 150px;
+
+        height: 42px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+   ========================= */
+
+@media (max-width: 380px) {
+
+    .edit_outer {
+        padding: 6px 0 15px;
+        gap: 10px;
+    }
+
+
+    /* NAV */
+
+    .edit_outer>nav {
+        min-height: 48px;
+    }
+
+    .edit_outer>nav>#back_btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .edit_outer>nav>#logout_btn {
+        width: 65px;
+        height: 36px;
+
+        font-size: 11px;
+    }
+
+
+    /* LEFT */
+
+    .e_form>main>#left {
+        padding: 55px 10px 12px;
+    }
+
+    .e_form>main>#left>h1 {
+        width: 145px;
+        height: 35px;
+
+        font-size: 18px;
+    }
+
+    .e_form>main>#left>label {
+        font-size: 14px;
+    }
+
+    .e_form>main>#left>#cat,
+    .e_form>main>#left>#lb_list {
+        font-size: 13px;
+    }
+
+    .e_form>main>#left>#lb_list {
+        height: 130px;
+    }
+
+
+    /* RIGHT */
+
+    .e_form>main>#right {
+        padding: 15px 10px;
+    }
+
+
+    /* IMAGE */
+
+    .e_form>main>#right>.top>#img_box>.image_frame {
+        width: 180px;
+    }
+
+
+    /* LABELS */
+
+    .e_form>main>#right>.top>#box1>label {
+        font-size: 14px;
+    }
+
+
+    /* INPUTS */
+
+    .e_form>main>#right>.top>#box1>input,
+    .e_form>main>#right>.top>#box1>textarea {
+        font-size: 13px;
+    }
+
+
+    /* BUTTONS */
+
+    .e_form>main>#right>.bottom>#btns>button {
+        min-width: 90px;
+
+        height: 40px;
+
+        font-size: 12px;
+    }
+}
