@@ -454,7 +454,10 @@ const Edit = () => {
                 />
 
                 <label htmlFor="g_type" id="label_gt">
-                  g/f
+                  {selectedCata === 'fruit' ||
+                    selectedCata === 'veg'
+                    ? 'Growtype'
+                    : 'Food'}
                 </label>
 
                 <textarea
@@ -470,7 +473,10 @@ const Edit = () => {
                 />
 
                 <label htmlFor="nut" id="label_nut">
-                  n/sc
+                  {selectedCata === 'fruit' ||
+                    selectedCata === 'veg'
+                    ? 'Nutrients'
+                    : 'Special characteristics'}
                 </label>
 
                 <textarea
@@ -496,6 +502,9 @@ const Edit = () => {
                     id="img_p"
                     src={displayData.i_img}
                     onLoad={() => setImageLoading(false)}
+                    onError={(e) => {
+                      e.currentTarget.src = './photos/no_img.jpg';
+                    }}
                   />
                 </div>
 

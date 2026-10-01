@@ -15,6 +15,8 @@
 
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    justify-content: space-around;
     align-items: center;
     padding-top: 1em;
 }
@@ -56,11 +58,38 @@
     display: inline-block;
     transition: all 0.3s ease-in-out;
 }
+
 .dash_outer>header>nav>ul>li>a:hover {
 
     color: black;
     background-color: white;
     transform: scale(1.15);
+}
+
+.dash_outer>main {
+    height: calc(100vh - 30px);
+    width: 60%;
+
+    background-image: url(./img/db/dash-bg-desktop.png);
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    border-radius: 50px;
+}
+
+@media (max-width: 1100px) {
+    .dash_outer>main {
+        width: 72%;
+        background-image: url(./img/db/dash-bg-bigtab.png);
+    }
+}
+
+@media (max-width: 800px) {
+    .dash_outer>main {
+        width: 84%;
+        background-image: url(./img/db/dash-bg-smalltab.png);
+    }
 }
 
 @media (max-width: 600px) {
@@ -97,5 +126,18 @@
         padding: 8px 9px;
         white-space: nowrap;
     }
+
+    .dash_outer>main {
+        width: calc(100% - 24px);
+        background-image: url(./img/db/dash-bg-mobile.png);
+        background-size: contain;
+    }
 }
 
+@media (max-width: 380px) {
+    .dash_outer>main {
+        width: calc(100% - 16px);
+        background-image: url(./img/db/dash-bg-compactmobile.png);
+
+    }
+}
