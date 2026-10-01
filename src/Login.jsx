@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./css/login.css";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -13,6 +13,10 @@ const Login = () => {
 
   const { uname, pwd } = state;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    toast.success("Login page Opened");
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

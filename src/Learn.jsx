@@ -4,6 +4,7 @@ import './css/learn.css';
 import { TiArrowBack } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 import { API_BASE_URL, getImageUrl } from './api';
+import toast from 'react-hot-toast';
 
 const Learn = () => {
   const [data, setData] = useState([]);
@@ -26,6 +27,8 @@ const Learn = () => {
 
   // Get data from backend
   useEffect(() => {
+    toast.success('Learn Page Opened');
+
     axios
       .get(`${API_BASE_URL}/data`)
       .then((res) => {
