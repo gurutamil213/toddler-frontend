@@ -4,6 +4,7 @@ import './css/edit.css'
 import { TiArrowBack } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom'
 import { API_BASE_URL, getImageUrl } from './api'
+import './css/image-loading.css'
 
 const Edit = () => {
   const [data, setData] = useState([])
@@ -496,6 +497,9 @@ const Edit = () => {
               <div id="img_box">
 
                 <div className={imageLoading ? 'image_frame image_loading' : 'image_frame'}>
+                  {imageLoading && (
+                    <span className="image_loading_ring" role="status" aria-label="Loading image" />
+                  )}
                   <img
                     key={displayData.i_img || 'empty-image'}
                     alt="img"

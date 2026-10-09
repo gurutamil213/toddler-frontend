@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./css/login.css";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import loginImage from "./css/img/login/20944201.jpg";
+import "./css/image-loading.css";
 
 const Login = () => {
   const [state, setState] = useState({
@@ -10,12 +12,25 @@ const Login = () => {
   });
 
   const [isVisible, setIsVisible] = useState(false);
+  const [isImageLoading, setIsImageLoading] = useState(true);
 
   const { uname, pwd } = state;
   const navigate = useNavigate();
 
   useEffect(() => {
     toast.success("Login page Opened");
+  }, []);
+
+  useEffect(() => {
+    const image = new Image();
+    image.onload = () => setIsImageLoading(false);
+    image.onerror = () => setIsImageLoading(false);
+    image.src = loginImage;
+
+    return () => {
+      image.onload = null;
+      image.onerror = null;
+    };
   }, []);
 
   const handleChange = (e) => {
@@ -52,7 +67,16 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit} className="login_outer">
       <div className="inner">
-        <div className="left"></div>
+        <div
+          className="left"
+          style={{ backgroundImage: `url("${loginImage}")` }}
+        >
+          {isImageLoading && (
+            <div className="left_image_loading" role="status" aria-label="Loading login image">
+              <span className="image_loading_ring" aria-hidden="true" />
+            </div>
+          )}
+        </div>
 
         <div className="right">
           <h1>Log In</h1>
