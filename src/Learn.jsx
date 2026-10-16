@@ -17,7 +17,7 @@ const Learn = () => {
   const [activeItem, setActiveItem] = useState('Fruits');
   const [selectedCata, setSelectedCata] = useState('fruit');
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [imageLoading, setImageLoading] = useState(false);
+  const [loadedImage, setLoadedImage] = useState(null);
   const listRef = useRef(null);
 
   const menuItems = [
@@ -92,10 +92,8 @@ const Learn = () => {
 
   // Currently selected item
   const selectedItem = filteredData[selectedIndex] || filteredData[0];
-
-  useEffect(() => {
-    setImageLoading(Boolean(selectedItem));
-  }, [selectedItem]);
+  const selectedImage = selectedItem?.img || '';
+  const imageLoading = Boolean(selectedItem) && loadedImage !== selectedImage;
 
   useEffect(() => {
     const selectedButton = listRef.current?.querySelector('.selected');
@@ -302,7 +300,7 @@ const Learn = () => {
                           src={getImageUrl(selectedItem.img)}
                           alt={selectedItem.name}
                           id="img_p"
-                          onLoad={() => setImageLoading(false)}
+                          onLoad={() => setLoadedImage(selectedImage)}
                           onError={(e) => {
                             e.currentTarget.src = './photos/no_img.jpg';
                           }}
@@ -372,7 +370,7 @@ const Learn = () => {
                         key={selectedItem.img}
                         src={getImageUrl(selectedItem.img)}
                         alt={selectedItem.name}
-                        onLoad={() => setImageLoading(false)}
+                        onLoad={() => setLoadedImage(selectedImage)}
                         onError={(e) => {
                           e.currentTarget.src = './photos/no_img.jpg';
                         }}
