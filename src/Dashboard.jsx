@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom'
 import './css/dashboard.css'
-import { Toaster } from 'react-hot-toast'
 
 
 const Dashboard = () => {
@@ -8,7 +7,6 @@ const Dashboard = () => {
 
   return (
     <div className='dash_outer'>
-      <Toaster />
       <header>
         <nav>
           <ul>
@@ -34,4 +32,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-

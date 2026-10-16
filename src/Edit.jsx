@@ -5,6 +5,9 @@ import { TiArrowBack } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom'
 import { API_BASE_URL, getImageUrl } from './api'
 import './css/image-loading.css'
+import LoadingScreen from './LoadingScreen'
+
+const MIN_LOADING_DURATION = 3000
 
 const Edit = () => {
   const [data, setData] = useState([])
@@ -15,6 +18,8 @@ const Edit = () => {
   const [selectedFile, setSelectedFile] = useState(null)
   const [imageLoading, setImageLoading] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [loadingProgress, setLoadingProgress] = useState(0)
+  const [progressTransitionDuration, setProgressTransitionDuration] = useState(100)
   const [error, setError] = useState('')
   const [displayData, setDisplayData] = useState({
     i_name: '',
@@ -32,16 +37,55 @@ const Edit = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios
-      .get(`${API_BASE_URL}/data`)
-      .then(res => setData(res.data))
-      .catch(err => {
-        console.error(err)
-        setError('Failed to load data')
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    const controller = new AbortController()
+    const loadingStartedAt = Date.now()
+    let isActive = true
+    let loadingTimeout
+    const progressInterval = window.setInterval(() => {
+      const elapsed = Date.now() - loadingStartedAt
+      setLoadingProgress(
+        Math.min(90, (elapsed / MIN_LOADING_DURATION) * 90)
+      )
+    }, 50)
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/data`, {
+          signal: controller.signal
+        })
+        if (isActive) {
+          setData(response.data)
+        }
+      } catch (err) {
+        if (isActive && !axios.isCancel(err)) {
+          console.error(err)
+          setError('Failed to load data')
+        }
+      } finally {
+        if (isActive) {
+          window.clearInterval(progressInterval)
+          const remainingLoadingTime = Math.max(
+            0,
+            MIN_LOADING_DURATION - (Date.now() - loadingStartedAt)
+          )
+          setProgressTransitionDuration(remainingLoadingTime)
+          setLoadingProgress(100)
+          loadingTimeout = window.setTimeout(
+            () => setLoading(false),
+            remainingLoadingTime
+          )
+        }
+      }
+    }
+
+    fetchData()
+
+    return () => {
+      isActive = false
+      controller.abort()
+      window.clearTimeout(loadingTimeout)
+      window.clearInterval(progressInterval)
+    }
   }, [])
 
 
@@ -301,6 +345,18 @@ const Edit = () => {
 
   /**************/
 
+  if (loading) {
+    return (
+      <LoadingScreen
+        title="Loading Content to Edit..."
+        description="We’re fetching the latest content from the server."
+        progress={loadingProgress}
+        transitionDuration={progressTransitionDuration}
+        progressLabel="Loading edit content"
+      />
+    )
+  }
+
   return (
     <div className="edit_outer">
 
@@ -324,7 +380,6 @@ const Edit = () => {
         action={`${API_BASE_URL}/toddler/Crud`}
       >
         <main>
-          {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
 
           <section id="left">

@@ -1,5 +1,5 @@
 {
-  "name": "toddler_pak",  
+  "name": "toddler_pak",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,13 +11,11 @@
   },
   "dependencies": {
     "axios": "^1.20.0",
-    "json-server": "^1.0.0-beta.15",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.7.0",
-    "react-router-dom": "^7.18.2",
-    "react-toastify": "^11.1.0"
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",

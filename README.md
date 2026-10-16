@@ -8,14 +8,6 @@
 
 This project is a React-based educational app built for children to learn through visual categories such as fruits, vegetables, animals, birds, letters, body parts, and shapes. The app includes a dashboard, a learning view, and an edit section for managing content.
 
-## Project Preview
-
-Add a screenshot or GIF of the app here to show the dashboard, learning page, or edit page.
-
-```md
-![Toddler Learning App Preview](./assets/preview.png)
-```
-
 ## Features
 
 - Home dashboard navigation
@@ -49,7 +41,6 @@ toddler_react/
 │   │   ├── Login.jsx
 │   │   ├── api.js
 │   │   ├── css/
-│   │   └── assets/
 │   ├── package.json
 │   ├── vite.config.js
 │   ├── index.html
